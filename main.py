@@ -32,19 +32,9 @@ def infer_type(meta: dict, path: Path) -> str:
     tags = meta.get("tags") or []
     if isinstance(tags, str):
         tags = [tags]
-    if "daily" in tags:
-        return "daily"
-    if "moc" in tags:
-        return "moc"
-    if "people" in tags:
-        return "person"
-    if "business" in tags:
-        return "account"
-    if "Daily Notes" in str(path):
-        return "daily"
-    if "MOCs" in str(path):
-        return "moc"
-    return "concept"
+    # Use the first tag as the type if present, otherwise fall back to filename stem
+    # Override this function to implement your own vault's type conventions
+    return tags[0] if tags else "note"
 
 
 def init_db(con: sqlite3.Connection) -> None:
