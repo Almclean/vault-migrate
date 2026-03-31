@@ -1,4 +1,4 @@
-# vault-migrate
+# VaultDB
 
 **Replace your Obsidian/Notion markdown vault with a SQLite graph database — and dramatically reduce the token cost of AI agent workflows.**
 
@@ -252,7 +252,7 @@ Skipped for now. Structured graph + keyword search covers the vast majority of r
 ## Setup
 
 ```bash
-git clone https://github.com/Almclean/vault-migrate
+git clone https://github.com/Almclean/vaultdb
 cd vault-migrate
 
 # install dependencies + register vault-db CLI

@@ -1,5 +1,5 @@
 [project]
-name = "vault-migrate"
+name = "vaultdb"
 version = "0.1.0"
 description = "Migrate an Obsidian vault to a SQLite graph database for AI agent workflows"
 readme = "README.md"
