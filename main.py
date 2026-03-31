@@ -28,11 +28,11 @@ def parse_file(path: Path) -> tuple[dict, str, list[str]]:
     return meta, body.strip(), links
 
 
-def infer_type(meta: dict, path: Path) -> str:
+def infer_type(meta: dict) -> str:
     tags = meta.get("tags") or []
     if isinstance(tags, str):
         tags = [tags]
-    # Use the first tag as the type if present, otherwise fall back to filename stem
+    # Use the first tag as the type if present
     # Override this function to implement your own vault's type conventions
     return tags[0] if tags else "note"
 
@@ -98,7 +98,7 @@ def migrate() -> None:
     for f in files:
         meta, body, links = parse_file(f)
         title = f.stem
-        type_ = infer_type(meta, f)
+        type_ = infer_type(meta)
         node_id = upsert_node(con, title, type_, body, meta)
         node_links[title] = links
 
